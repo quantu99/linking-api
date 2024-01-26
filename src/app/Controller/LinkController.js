@@ -9,5 +9,13 @@ const LinkController = {
             return res.status(500).json({ message: err.message });
         }
     },
+    getAll: async (req, res) => {
+        try {
+            const link = await Link.find();
+            return res.status(200).json(link);
+        } catch (err) {
+            return res.status(500).json({ message: err.message });
+        }
+    },
 };
 module.exports = LinkController;
